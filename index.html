@@ -160,7 +160,7 @@
       <li><a href="#s2" data-part="s2"><span class="n"><span>2</span></span>Background and track record</a></li>
       <li><a href="#s3" data-part="s3"><span class="n"><span>3</span></span>Familiarity with the app</a></li>
       <li><a href="#s4" data-part="s4"><span class="n"><span>4</span></span>Vision and leadership</a></li>
-      <li><a href="#s5" data-part="s5"><span class="n"><span>5</span></span>Areas you could lead</a></li>
+      <li><a href="#s5" data-part="s5"><span class="n"><span>5</span></span>Positions and areas</a></li>
       <li><a href="#s6" data-part="s6"><span class="n"><span>6</span></span>Scope and availability</a></li>
       <li><a href="#s7" data-part="s7"><span class="n"><span>7</span></span>Review and submit</a></li>
     </ol>
@@ -222,9 +222,14 @@
     </section>
 
     <section class="part" id="s5">
-      <div class="part-h"><span class="num">05</span><div><h2>Areas you could lead</h2><p>Select every area you could run, not just contribute to.</p></div></div>
+      <div class="part-h"><span class="num">05</span><div><h2>Positions and areas</h2><p>Rank the three positions, then select any other area you could run.</p></div></div>
       <div class="fields">
-        <div class="lab"><span class="qt">Which areas could you run?</span><button type="button" class="info" aria-expanded="false" aria-controls="tip-areas" aria-label="More about: Which areas could you run?">i</button></div><div class="tip" id="tip-areas" hidden>Tick every area you could run yourself, meaning you would own the results, not just help out. You can tick several.</div>
+        <p class="fine">Choose 1 for the position you most want to run, 2 for your next choice and 3 for the last. Each position needs its own number. Choose "Not interested" for any you would pass on.</p>
+        <div class="field"><div class="lab"><label for="rank_events">Head of Event Planning <span class="tag">Required</span></label><button type="button" class="info" aria-expanded="false" aria-controls="tip-rank_events" aria-label="More about: Head of Event Planning">i</button></div><div class="tip" id="tip-rank_events" hidden>Running Taste Circle&#x27;s events, such as tastings, campus nights and brand pop-ups. Choose how much you want this job compared with the other two.</div><select id="rank_events" name="rank_events"><option value="">Select</option><option>1 (most interested)</option><option>2</option><option>3 (least interested)</option><option>Not interested</option></select></div>
+        <div class="field"><div class="lab"><label for="rank_campus">Head of Campus Ambassador <span class="tag">Required</span></label><button type="button" class="info" aria-expanded="false" aria-controls="tip-rank_campus" aria-label="More about: Head of Campus Ambassador">i</button></div><div class="tip" id="tip-rank_campus" hidden>Building and leading a team of student ambassadors who spread Taste Circle across campus. Choose how much you want this job compared with the other two.</div><select id="rank_campus" name="rank_campus"><option value="">Select</option><option>1 (most interested)</option><option>2</option><option>3 (least interested)</option><option>Not interested</option></select></div>
+        <div class="field"><div class="lab"><label for="rank_brand">Head of Brand Sales / Communications <span class="tag">Required</span></label><button type="button" class="info" aria-expanded="false" aria-controls="tip-rank_brand" aria-label="More about: Head of Brand Sales / Communications">i</button></div><div class="tip" id="tip-rank_brand" hidden>Selling partnerships to brands and owning how Taste Circle talks to them and to the public. Choose how much you want this job compared with the other two.</div><select id="rank_brand" name="rank_brand"><option value="">Select</option><option>1 (most interested)</option><option>2</option><option>3 (least interested)</option><option>Not interested</option></select></div>
+        <div class="field"><div class="lab"><label for="rankwhy">Why is your top choice your top choice?</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-rankwhy" aria-label="More about: Why is your top choice your top choice?">i</button></div><div class="tip" id="tip-rankwhy" hidden>What draws you to your first choice, and what you would do first in it.</div><textarea id="rankwhy" name="rankwhy" class="short"></textarea></div>
+        <div class="lab"><span class="qt">Which other areas could you run?</span><button type="button" class="info" aria-expanded="false" aria-controls="tip-areas" aria-label="More about: Which other areas could you run?">i</button></div><div class="tip" id="tip-areas" hidden>Any other area you could run yourself, meaning you would own the results, not just help out. You can tick several.</div>
         <div class="options" role="group" aria-label="Areas you could lead">
           <label class="opt"><input type="checkbox" name="areas" value="Brand partnerships and business development">Brand partnerships and business development</label>
           <label class="opt"><input type="checkbox" name="areas" value="Growth and marketing">Growth and marketing</label>
@@ -292,11 +297,11 @@
     ["Background and track record", [["now", "What you are doing now"], ["proud", "Biggest thing built or led"], ["strength", "Strengths"], ["weakness", "Weaknesses"]]],
     ["Familiarity with the app", [["used", "Uses Taste Circle"], ["like", "Strongest part"], ["missing", "Biggest gap or mistake"]]],
     ["Vision and leadership", [["oneline", "Taste Circle in three years"], ["role", "Role and what you would own"], ["bets", "Biggest bets"], ["who", "Audience and how to win them"], ["team", "Building the team"], ["metrics", "How to measure you"]]],
-    ["Areas you could lead", [["areas", "Could lead"], ["areaOther", "Other"]]],
+    ["Positions and areas", [["rank_events", "Head of Event Planning"], ["rank_campus", "Head of Campus Ambassador"], ["rank_brand", "Head of Brand Sales / Communications"], ["rankwhy", "Why the top choice"], ["areas", "Other areas could lead"], ["areaOther", "Other"]]],
     ["Scope and availability", [["level", "Level aiming for"], ["hours", "Hours a week"], ["decisions", "Decisions you would own"], ["needs", "Needs from the founders"], ["know", "Anything else"], ["askus", "Questions for the founders"]]]
   ];
-  var SECTION_KEYS = { s1: ["name", "email"], s2: ["proud"], s3: ["used"], s4: ["oneline", "role"], s5: ["areas"], s6: ["level"] };
-  var REQUIRED = [["name", "Full name"], ["email", "Email address"], ["proud", "The biggest thing you have built, led or grown"], ["oneline", "What Taste Circle should become in three years"], ["role", "The role you would take"]];
+  var SECTION_KEYS = { s1: ["name", "email"], s2: ["proud"], s3: ["used"], s4: ["oneline", "role"], s5: ["rank_events", "rank_campus", "rank_brand"], s6: ["level"] };
+  var REQUIRED = [["name", "Full name"], ["email", "Email address"], ["proud", "The biggest thing you have built, led or grown"], ["oneline", "What Taste Circle should become in three years"], ["role", "The role you would take"], ["rank_events", "Rank for Head of Event Planning"], ["rank_campus", "Rank for Head of Campus Ambassador"], ["rank_brand", "Rank for Head of Brand Sales / Communications"]];
 
   function values() {
     var out = {};
@@ -310,6 +315,14 @@
       } else { out[k] = (els.value || "").trim(); }
     }); });
     return out;
+  }
+  function rankClash(v) {
+    var seen = {}, clash = false;
+    ["rank_events", "rank_campus", "rank_brand"].forEach(function (k) {
+      var m = /^([123])/.exec(v[k] || "");
+      if (m) { if (seen[m[1]]) clash = true; seen[m[1]] = 1; }
+    });
+    return clash;
   }
   function filled(v) { return Array.isArray(v) ? v.length > 0 : !!v; }
   function show(v) { return Array.isArray(v) ? v.join(", ") : v; }
@@ -351,8 +364,9 @@
     renderReview(v);
     var miss = REQUIRED.filter(function (p) { return !filled(v[p[0]]); }).map(function (p) { return p[1]; });
     var note = document.getElementById("notice");
-    note.hidden = !miss.length;
-    note.textContent = miss.length ? "Required before submitting: " + miss.join("; ") + "." : "";
+    var clash = rankClash(v);
+    note.hidden = !miss.length && !clash;
+    note.textContent = (miss.length ? "Required before submitting: " + miss.join("; ") + ". " : "") + (clash ? "Each position needs its own rank from 1 to 3." : "");
     var done = 0;
     Object.keys(SECTION_KEYS).forEach(function (s) {
       var ok = SECTION_KEYS[s].every(function (k) { return filled(v[k]); });
@@ -387,6 +401,7 @@
     daily_limit: "We have received a lot of submissions today. Please try again tomorrow, or email us.",
     too_many_for_email: "You have already submitted a few times today. We have your responses.",
     bad_email: "Please check your email address.",
+    bad_ranking: "Each position needs its own rank from 1 to 3.",
     too_long: "Some answers are very long. Please shorten them a little and submit again."
   };
   document.getElementById("submit").addEventListener("click", function () {
@@ -398,6 +413,7 @@
       document.getElementById("notice").scrollIntoView({ block: "center" });
       return;
     }
+    if (rankClash(v)) { status.className = "status"; status.textContent = "Each position needs its own rank from 1 to 3."; document.getElementById("notice").scrollIntoView({ block: "center" }); return; }
     var payload = {}; Object.keys(v).forEach(function (k) { payload[k] = v[k]; });
     payload.website = (f.elements.website && f.elements.website.value) || "";
     btn.disabled = true; status.className = "status"; status.textContent = "Submitting…";
