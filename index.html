@@ -119,6 +119,13 @@
   .status { font-size: 14px; color: var(--muted); }
   .status.good { color: var(--ok); }
   .addr { font-weight: 600; user-select: all; }
+  .lab { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .lab > label, .lab > .qt { font-weight: 600; font-size: 14.5px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+  .info { width: 26px; height: 26px; flex: none; padding: 0; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; color: var(--navy); font: italic 700 14px/1 Georgia, "Times New Roman", serif; cursor: pointer; display: inline-grid; place-items: center; vertical-align: middle; }
+  .info:hover { background: var(--line); }
+  .info[aria-expanded="true"] { background: var(--navy); color: var(--navy-ink); border-color: var(--navy); }
+  .info:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .tip { margin: 0; padding: 10px 12px; font-size: 13.5px; color: var(--muted); background: var(--paper); border-left: 3px solid var(--accent); border-radius: 6px; }
   .fine { color: var(--muted); font-size: 13.5px; margin: 0; }
   .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
   .done { border: 1px solid var(--line); border-left: 3px solid var(--ok); border-radius: 8px; padding: 16px 18px; display: grid; gap: 6px; }
@@ -142,7 +149,6 @@
   <p>Taste Circle is a food app built in Norman, Oklahoma. Friends share what they eat and where, earn Crumbs rewards, vote on a weekly Meal of the Week, and compete in TC Ranked. We want to understand the biggest role you could take on here: what you would own, how you would run it, and where you would take the company. Think big picture. The more specific and ambitious you are, the more useful this is.</p>
   <dl class="meta">
     <div><dt>Prepared for</dt><dd>Jaime</dd></div>
-    <div><dt>Shared with</dt><dd>The founding team</dd></div>
     <div><dt>Time needed</dt><dd>About 20 minutes</dd></div>
   </dl>
 </div>
@@ -166,10 +172,10 @@
       <div class="part-h"><span class="num">01</span><div><h2>Contact information</h2></div></div>
       <div class="fields">
         <div class="grid2">
-          <div class="field"><label for="name">Full name <span class="tag">Required</span></label><input id="name" name="name" type="text" autocomplete="name"></div>
-          <div class="field"><label for="email">Email address <span class="tag">Required</span></label><input id="email" name="email" type="email" autocomplete="email"></div>
-          <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
-          <div class="field"><label for="based">Location</label>
+          <div class="field"><div class="lab"><label for="name">Full name <span class="tag">Required</span></label><button type="button" class="info" aria-expanded="false" aria-controls="tip-name" aria-label="More about: Full name">i</button></div><div class="tip" id="tip-name" hidden>The name you want the founders to see on your answers.</div><input id="name" name="name" type="text" autocomplete="name"></div>
+          <div class="field"><div class="lab"><label for="email">Email address <span class="tag">Required</span></label><button type="button" class="info" aria-expanded="false" aria-controls="tip-email" aria-label="More about: Email address">i</button></div><div class="tip" id="tip-email" hidden>So we can reply to you. It is only shown to the founding team.</div><input id="email" name="email" type="email" autocomplete="email"></div>
+          <div class="field"><div class="lab"><label for="phone">Phone number</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-phone" aria-label="More about: Phone number">i</button></div><div class="tip" id="tip-phone" hidden>Optional. Add it if a call is easier than email for follow-up questions.</div><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><div class="lab"><label for="based">Location</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-based" aria-label="More about: Location">i</button></div><div class="tip" id="tip-based" hidden>Where you are based now. It helps us plan for in-person work in Norman and Oklahoma City.</div>
             <select id="based" name="based"><option value="">Select</option><option>Norman</option><option>Oklahoma City area</option><option>Elsewhere in Oklahoma</option><option>Outside Oklahoma</option></select></div>
         </div>
       </div>
@@ -178,46 +184,41 @@
     <section class="part" id="s2">
       <div class="part-h"><span class="num">02</span><div><h2>Background and track record</h2></div></div>
       <div class="fields">
-        <div class="field"><label for="now">What you are doing now</label><textarea id="now" name="now" class="short"></textarea></div>
-        <div class="field"><label for="proud">The biggest thing you have built, led or grown <span class="tag">Required</span></label>
-          <div class="help">What it was, how big it got, who was on your team and what you personally drove. Include numbers where you can.</div>
+        <div class="field"><div class="lab"><label for="now">What you are doing now</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-now" aria-label="More about: What you are doing now">i</button></div><div class="tip" id="tip-now" hidden>What fills your week right now: a job, school, other ventures. It tells us how much room you realistically have and what you are bringing with you.</div><textarea id="now" name="now" class="short"></textarea></div>
+        <div class="field"><div class="lab"><label for="proud">The biggest thing you have built, led or grown <span class="tag">Required</span></label><button type="button" class="info" aria-expanded="false" aria-controls="tip-proud" aria-label="More about: The biggest thing you have built, led or grown">i</button></div><div class="tip" id="tip-proud" hidden>Pick the single biggest thing you have built, run or grown, in any field. Tell us what it was, how big it got, who worked with you, and what you personally drove. Numbers like revenue, members, brands signed or followers make it concrete.</div>
           <textarea id="proud" name="proud"></textarea></div>
-        <div class="field"><label for="strength">What you do better than most people</label><textarea id="strength" name="strength" class="short"></textarea></div>
-        <div class="field"><label for="links">Links</label><input id="links" name="links" type="text" placeholder="LinkedIn, Instagram, past work"></div>
+        <div class="field"><div class="lab"><label for="strength">What you do better than most people</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-strength" aria-label="More about: What you do better than most people">i</button></div><div class="tip" id="tip-strength" hidden>The one or two things people come to you for, or that you do noticeably better than most. Be specific rather than modest.</div><textarea id="strength" name="strength" class="short"></textarea></div>
+        <div class="field"><div class="lab"><label for="links">Links</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-links" aria-label="More about: Links">i</button></div><div class="tip" id="tip-links" hidden>LinkedIn, Instagram, a deck or anything else that shows your work. Optional.</div><input id="links" name="links" type="text" placeholder="LinkedIn, Instagram, past work"></div>
       </div>
     </section>
 
     <section class="part" id="s3">
       <div class="part-h"><span class="num">03</span><div><h2>Familiarity with the app</h2><p>Candid feedback is the most useful.</p></div></div>
       <div class="fields">
-        <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="label" style="padding:0;margin-bottom:6px">How often do you use Taste Circle?</legend>
+        <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="label" style="padding:0;margin-bottom:6px">How often do you use Taste Circle? <button type="button" class="info" aria-expanded="false" aria-controls="tip-used" aria-label="More about: How often do you use Taste Circle?">i</button></legend><div class="tip" id="tip-used" hidden>Honest answer is fine. It tells us whether your view of the app comes from using it or from the outside.</div>
           <div class="options">
             <label class="opt"><input type="radio" name="used" value="Regularly">Regularly</label>
             <label class="opt"><input type="radio" name="used" value="Now and then">Now and then</label>
             <label class="opt"><input type="radio" name="used" value="Rarely">Rarely</label>
           </div></fieldset>
-        <div class="field"><label for="like">What is the strongest part of Taste Circle?</label><textarea id="like" name="like" class="short"></textarea></div>
-        <div class="field"><label for="missing">What is the biggest gap or mistake?</label><textarea id="missing" name="missing" class="short"></textarea></div>
+        <div class="field"><div class="lab"><label for="like">What is the strongest part of Taste Circle?</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-like" aria-label="More about: What is the strongest part of Taste Circle?">i</button></div><div class="tip" id="tip-like" hidden>What you think Taste Circle does best, in the app or in the idea behind it. This is the part we should protect and build on.</div><textarea id="like" name="like" class="short"></textarea></div>
+        <div class="field"><div class="lab"><label for="missing">What is the biggest gap or mistake?</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-missing" aria-label="More about: What is the biggest gap or mistake?">i</button></div><div class="tip" id="tip-missing" hidden>The biggest gap, mistake or missed opportunity you see. Blunt is more useful than polite.</div><textarea id="missing" name="missing" class="short"></textarea></div>
       </div>
     </section>
 
     <section class="part" id="s4">
       <div class="part-h"><span class="num">04</span><div><h2>Vision and leadership</h2></div></div>
       <div class="fields">
-        <div class="field"><label for="oneline">What should Taste Circle become in three years? <span class="tag">Required</span></label><input id="oneline" name="oneline" type="text"></div>
-        <div class="field"><label for="role">The role you would take, and what you would own <span class="tag">Required</span></label>
-          <div class="help">Give it a title if you like. Describe what would be yours to run, and what success looks like after 12 months.</div>
+        <div class="field"><div class="lab"><label for="oneline">What should Taste Circle become in three years? <span class="tag">Required</span></label><button type="button" class="info" aria-expanded="false" aria-controls="tip-oneline" aria-label="More about: What should Taste Circle become in three years?">i</button></div><div class="tip" id="tip-oneline" hidden>Where Taste Circle should be in three years, in one sentence. Think size, reach and what people would say it is.</div><input id="oneline" name="oneline" type="text"></div>
+        <div class="field"><div class="lab"><label for="role">The role you would take, and what you would own <span class="tag">Required</span></label><button type="button" class="info" aria-expanded="false" aria-controls="tip-role" aria-label="More about: The role you would take, and what you would own">i</button></div><div class="tip" id="tip-role" hidden>The position you would take at this stage. Give it a title if you like, then describe what would be yours to run and what should be true after 12 months that proves it is working.</div>
           <textarea id="role" name="role"></textarea></div>
-        <div class="field"><label for="first90">Your first 90 days <span class="tag">Required</span></label>
-          <div class="help">What you would do in the first 30, 60 and 90 days, and what should be true at the end.</div>
+        <div class="field"><div class="lab"><label for="first90">Your first 90 days <span class="tag">Required</span></label><button type="button" class="info" aria-expanded="false" aria-controls="tip-first90" aria-label="More about: Your first 90 days">i</button></div><div class="tip" id="tip-first90" hidden>Your plan for the first 30, 60 and 90 days: what you would do, in what order, and what should be different by day 90.</div>
           <textarea id="first90" name="first90"></textarea></div>
-        <div class="field"><label for="bets">The two or three biggest bets you would make</label><textarea id="bets" name="bets"></textarea></div>
-        <div class="field"><label for="who">Who is the core audience, and how do we win them and the brands around them?</label><textarea id="who" name="who" class="short"></textarea></div>
-        <div class="field"><label for="team">How you would build the team around you</label>
-          <div class="help">Who you would bring in, how you would manage them, and what you would delegate.</div>
+        <div class="field"><div class="lab"><label for="bets">The two or three biggest bets you would make</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-bets" aria-label="More about: The two or three biggest bets you would make">i</button></div><div class="tip" id="tip-bets" hidden>The two or three biggest moves you would make if you could only make a few. Say why each one matters more than the alternatives.</div><textarea id="bets" name="bets"></textarea></div>
+        <div class="field"><div class="lab"><label for="who">Who is the core audience, and how do we win them and the brands around them?</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-who" aria-label="More about: Who is the core audience, and how do we win them and the brands around them?">i</button></div><div class="tip" id="tip-who" hidden>The people who make Taste Circle work, and the brands around them. Say who they are, how you would win them, and what would make them stay.</div><textarea id="who" name="who" class="short"></textarea></div>
+        <div class="field"><div class="lab"><label for="team">How you would build the team around you</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-team" aria-label="More about: How you would build the team around you">i</button></div><div class="tip" id="tip-team" hidden>Who you would bring in and what you would hand to them. Describe how you would manage them and keep the work moving without you doing it all.</div>
           <textarea id="team" name="team" class="short"></textarea></div>
-        <div class="field"><label for="metrics">How should we measure you?</label>
-          <div class="help">The numbers you would be willing to be held to.</div>
+        <div class="field"><div class="lab"><label for="metrics">How should we measure you?</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-metrics" aria-label="More about: How should we measure you?">i</button></div><div class="tip" id="tip-metrics" hidden>The numbers you would be willing to be held to, such as brands signed, revenue from partners, users reached or events run, and the targets you would put on them.</div>
           <textarea id="metrics" name="metrics" class="short"></textarea></div>
       </div>
     </section>
@@ -225,6 +226,7 @@
     <section class="part" id="s5">
       <div class="part-h"><span class="num">05</span><div><h2>Areas you could lead</h2><p>Select every area you could run, not just contribute to.</p></div></div>
       <div class="fields">
+        <div class="lab"><span class="qt">Which areas could you run?</span><button type="button" class="info" aria-expanded="false" aria-controls="tip-areas" aria-label="More about: Which areas could you run?">i</button></div><div class="tip" id="tip-areas" hidden>Tick every area you could run yourself, meaning you would own the results, not just help out. You can tick several.</div>
         <div class="options" role="group" aria-label="Areas you could lead">
           <label class="opt"><input type="checkbox" name="areas" value="Brand partnerships and business development">Brand partnerships and business development</label>
           <label class="opt"><input type="checkbox" name="areas" value="Growth and marketing">Growth and marketing</label>
@@ -238,7 +240,7 @@
           <label class="opt"><input type="checkbox" name="areas" value="Fundraising and investor relations">Fundraising and investor relations</label>
           <label class="opt"><input type="checkbox" name="areas" value="Company strategy">Company strategy</label>
         </div>
-        <div class="field"><label for="areaOther">Other</label><input id="areaOther" name="areaOther" type="text"></div>
+        <div class="field"><div class="lab"><label for="areaOther">Other</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-areaOther" aria-label="More about: Other">i</button></div><div class="tip" id="tip-areaOther" hidden>Anything you could lead that is not in the list above.</div><input id="areaOther" name="areaOther" type="text"></div>
       </div>
     </section>
 
@@ -246,15 +248,15 @@
       <div class="part-h"><span class="num">06</span><div><h2>Scope and availability</h2></div></div>
       <div class="fields">
         <div class="grid2">
-          <div class="field"><label for="level">The level you are aiming for</label>
+          <div class="field"><div class="lab"><label for="level">The level you are aiming for</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-level" aria-label="More about: The level you are aiming for">i</button></div><div class="tip" id="tip-level" hidden>The level of responsibility you are aiming for, from contributing on a team up to an executive role alongside the founders. This is about scope of responsibility, not pay.</div>
             <select id="level" name="level"><option value="">Select</option><option>Contributor on a team</option><option>Lead one function</option><option>Lead several functions</option><option>Executive, alongside the founders</option></select></div>
-          <div class="field"><label for="hours">Hours a week you can put in</label>
+          <div class="field"><div class="lab"><label for="hours">Hours a week you can put in</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-hours" aria-label="More about: Hours a week you can put in">i</button></div><div class="tip" id="tip-hours" hidden>The hours a week you can reliably put in, not your best week. If it would change over time, choose what is true for the next few months and explain below.</div>
             <select id="hours" name="hours"><option value="">Select</option><option>Under 10 hours</option><option>10 to 20 hours</option><option>20 to 30 hours</option><option>30 to 40 hours</option><option>Full time</option></select></div>
         </div>
-        <div class="field"><label for="decisions">The decisions you would expect to make on your own</label><textarea id="decisions" name="decisions" class="short"></textarea></div>
-        <div class="field"><label for="needs">What you need from the founders to do this well</label><textarea id="needs" name="needs" class="short"></textarea></div>
-        <div class="field"><label for="know">Anything else we should know</label><textarea id="know" name="know" class="short"></textarea></div>
-        <div class="field"><label for="askus">Questions for the founders</label><textarea id="askus" name="askus" class="short"></textarea></div>
+        <div class="field"><div class="lab"><label for="decisions">The decisions you would expect to make on your own</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-decisions" aria-label="More about: The decisions you would expect to make on your own">i</button></div><div class="tip" id="tip-decisions" hidden>Decisions you would expect to make without asking first, such as which brands to approach, what to offer them, what to spend or who to hire. This shows the founders how much trust you expect.</div><textarea id="decisions" name="decisions" class="short"></textarea></div>
+        <div class="field"><div class="lab"><label for="needs">What you need from the founders to do this well</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-needs" aria-label="More about: What you need from the founders to do this well">i</button></div><div class="tip" id="tip-needs" hidden>What you would need from the founders to do this well: access, tools, budget, introductions, product changes or a faster yes on decisions.</div><textarea id="needs" name="needs" class="short"></textarea></div>
+        <div class="field"><div class="lab"><label for="know">Anything else we should know</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-know" aria-label="More about: Anything else we should know">i</button></div><div class="tip" id="tip-know" hidden>Anything that affects how we see you or the plan that the questions above did not cover.</div><textarea id="know" name="know" class="short"></textarea></div>
+        <div class="field"><div class="lab"><label for="askus">Questions for the founders</label><button type="button" class="info" aria-expanded="false" aria-controls="tip-askus" aria-label="More about: Questions for the founders">i</button></div><div class="tip" id="tip-askus" hidden>Anything you want to ask the founders: where they see the company going, how decisions get made, what they expect of you.</div><textarea id="askus" name="askus" class="short"></textarea></div>
       </div>
     </section>
 
@@ -442,6 +444,17 @@
   render();
 })();
 </script>
+<script>
+document.addEventListener("click", function (e) {
+  var b = e.target.closest && e.target.closest(".info");
+  if (!b) return;
+  var tip = document.getElementById(b.getAttribute("aria-controls"));
+  if (!tip) return;
+  var open = tip.hidden;
+  tip.hidden = !open;
+  b.setAttribute("aria-expanded", String(open));
+});
+
 
 </body>
 </html>
